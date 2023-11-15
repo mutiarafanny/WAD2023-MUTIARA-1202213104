@@ -24,8 +24,8 @@
             include("connect.php");
 
             // Buatlah query untuk mengambil data dari database (gunakan query SELECT)
-                $sql = "SELECT * FROM showroom_mobil";
-                $result = $connect->query($sql);
+            $sql = "SELECT * FROM showroom_mobil";
+            $result = $connect->query($sql);
             
 
             // Buatlah perkondisian dimana: 
@@ -36,40 +36,40 @@
             // 2. Apabila tidak ada data dalam database, maka outputnya adalah pesan 'tidak ada data dalam tabel'
 
             //<!--  **********************  1  **************************     -->
-                if ($result->num_rows > 0) {
-                    echo "<table class='table table-striped'>";
-                    echo "<thead><tr><th>ID</th><th>Nama Mobil</th><th>Brand Mobil</th><th>Warna Mobil</th><th>Tipe Mobil</th><th>Harga Mobil</th><th>Aksi</th></tr></thead></tbody>";
+            if ($result->num_rows > 0) {
+                echo "<table class='table table-striped'>";
+                echo "<thead><tr><th>ID</th><th>Nama Mobil</th><th>Brand Mobil</th><th>Warna Mobil</th><th>Tipe Mobil</th><th>Harga Mobil</th><th>Aksi</th></tr></thead><tbody>";
                     
-                    while($row = $result -> fetch_assoc()){
-                        echo
-                        "<tr><td>" .
-                        $row['id'] .
-                        "</td><td>" .
-                        $row['nama_mobil'] .
-                        "</td><td>" .
-                        $row['brand_mobil'] .
-                        "</td><td>" .
-                        $row['warna_mobil'] .
-                        "</td><td>" .
-                        $row['tipe_mobil'] .
-                        "</td><td>" .
-                        $row['harga_mobil'] .
-                        "</td><td><a href='form_detail_mobil.php?id=" .
-                        $row['id'] .
-                        "'button class='btn btn-primary'
-                        id='detail'>Detail</a></td></tr>";
-                    }
-                    echo "</tbody></table>";
+            while ($row = $result->fetch_assoc()) {
+                echo
+                "<tr><td>" .
+                $row['id'] .
+                "</td><td>" .
+                $row['nama_mobil'] .
+                "</td><td>" .
+                $row['brand_mobil'] .
+                "</td><td>" .
+                $row['warna_mobil'] .
+                "</td><td>" .
+                $row['tipe_mobil'] .
+                "</td><td>" .
+                $row['harga_mobil'] .
+                "</td><td><a href='form_detail_mobil.php?id=" .
+                $row['id'] .
+                "'button class='btn btn-primary'
+                id='detail'>Detail</a></td></tr>";
+                }
+                echo "</tbody></table>";
                 
 
             //<!--  **********************  1  **************************     -->
 
             //<!--  **********************  2  **************************     -->
-                } 
-                else {
-                    echo "Tidak ada data dalam tabel!";
-                }
-                $connect->close();
+            } 
+            else {
+                echo "Tidak ada data dalam tabel";
+            }
+            $connect->close();
             
             
 

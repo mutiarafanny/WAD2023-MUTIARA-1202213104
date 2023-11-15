@@ -11,8 +11,8 @@
 // 
   
 // Buatlah perkondisian jika tidak bisa terkoneksi ke database maka akan mengeluarkan errornya
-    if ($connect -> connect_error){
-        die("Koneksi gagal!".$connect -> connect_error);
+    if ($connect->connect_error) {
+        die("Koneksi gagal: " . $connect->connect_error);
     }
 // 
 ?>
