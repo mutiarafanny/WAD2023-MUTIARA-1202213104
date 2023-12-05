@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\ShowroomController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +16,8 @@ use App\Http\Controllers\ShowroomController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
-Route::get('/users', [ShowroomController::class, 'index']);
-Route::get('/showroom/create', function () {return index();});
-Route::get('/showroom/store', function () {return create();});
+Route::get('/showroom', [ShowroomController::class, 'index'])->name('showroom.index');
+Route::get('/showroom/create', [ShowroomController::class, 'create'])->name('showroom.create');
+Route::post('/showroom/store', [ShowroomController::class, 'store'])->name('showroom.store');
